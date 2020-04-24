@@ -32,11 +32,12 @@ print(questions[0][1])
 
 count = 0
 subcount = -1
+choices = ['a', 'b', 'c', 'd']
 for x in range(len(questions)):
     count += 1
     print(questions[x][count])
-    for y in answers[x]:
-        print([y])
+    for y in range(4):
+        print(answers[x][y][choices[y]])
 
     ##for v in answers[y]:
             ##print(v)
