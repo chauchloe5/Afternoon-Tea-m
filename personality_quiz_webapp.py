@@ -39,10 +39,10 @@ def quiz():
             state['score'][0] += score
         elif orientation == "y":
             state['score'][1] += score
-        
+
         state['count'] += 1
 
-        if state['count'] == 2:
+        if state['count'] == 10:
             return render_template('results.html', state=state)
         else:
             question = personality_quiz.questions[state['count']]
