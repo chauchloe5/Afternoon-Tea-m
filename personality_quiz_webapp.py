@@ -8,7 +8,8 @@ state = {
     "question":"None",
     "answers": [],
     "score": [0, 0],
-    "count":0
+    "count":0,
+    "url":0
 }
 
 @app.route('/')
@@ -44,10 +45,41 @@ def quiz():
         state['count'] += 1
 
         if state['count'] == 2:
+            plot_results()
             return render_template('results.html', state=state)
         else:
             update_state()
             return render_template('quiz.html', state=state)
+
+def plot_results():
+    global state
+
+    import matplotlib.pyplot as plt
+    import matplotlib
+    from datetime import datetime
+
+    matplotlib.use('Agg')
+
+    plt.figure()
+    # Set x-axis range
+    plt.xlim((-10,10))
+    # Set y-axis range
+    plt.ylim((-10,10))
+    # Draw lines to split quadrants
+    plt.plot([0,0],[-10,10], linewidth=1, color='#333333' )
+    plt.plot([-10,10],[0,0], linewidth=1, color='#333333' )
+    plt.plot(state['score'][0],state['score'][1], 'ro')
+    plt.title('Personality Test')
+    plt.xlabel("Cute -- Mature",)
+    plt.ylabel("Nerdy -- Sexy")
+    plt.tick_params(labelleft=False, labelbottom=False, left=False, bottom=False)
+    
+    # current date and time
+    now = datetime.now()
+    timestamp = str(datetime.timestamp(now))
+    path = "static/images/plot_" + timestamp + ".png"
+    plt.savefig(path)
+    state['url'] = path
 
 def update_state():
     global state
