@@ -21,6 +21,13 @@ def home():
 def about():
 	return render_template('about.html')
 
+@app.route('/restart')
+def new_quiz():
+    state['count'] = 0
+    state['score'] = [0, 0]
+    state['url'] = ""
+    return quiz()
+
 @app.route('/quiz', methods=['GET', "POST"])
 def quiz():
     global state
