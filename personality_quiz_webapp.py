@@ -24,10 +24,11 @@ def about():
 def quiz():
     global state
     if request.method == 'GET':
-        question = personality_quiz.questions[state['count']]
-        state['question'] = question['question']
-        state['answers'] = [ans['answer'] for ans in question['answers']]
-        return render_template('quiz.html', state=state)
+        if state['count'] == 2:
+            return render_template('results.html', state=state)
+        else:
+            update_state()
+            return render_template('quiz.html', state=state)
     elif request.method == 'POST':
         response = request.form[str(state['count'])]
         question = personality_quiz.questions[state['count']]
@@ -42,13 +43,17 @@ def quiz():
 
         state['count'] += 1
 
-        if state['count'] == 10:
+        if state['count'] == 2:
             return render_template('results.html', state=state)
         else:
-            question = personality_quiz.questions[state['count']]
-            state['question'] = question['question']
-            state['answers'] = [ans['answer'] for ans in question['answers']]
+            update_state()
             return render_template('quiz.html', state=state)
+
+def update_state():
+    global state
+    question = personality_quiz.questions[state['count']]
+    state['question'] = question['question']
+    state['answers'] = [ans['answer'] for ans in question['answers']]
 
 if __name__ == '__main__':
     app.run('0.0.0.0',port=3000)
