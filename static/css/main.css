@@ -1,0 +1,27 @@
+@font-face{
+    font-family: balqis;
+    src: url('Balqis.ttf'),
+    url('Balqis.ttf');
+    font-weight: bold;
+}
+
+body {
+    font-family: balqis !important;
+    background-color: #f06292 !important;
+    color: #ffffff !important;
+}
+
+.jumbotron {
+    margin-top: 20px;
+    background-color: #f48fb1 !important;
+}
+
+#main-btn {
+    background-color: #c60055 !important; 
+    color:#ffffff; 
+    border-width: 2px;
+}
+
+#footer {
+    color: #ffffff;
+}

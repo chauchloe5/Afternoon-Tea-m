@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     {% block head %}
-		<link rel="stylesheet" href="style.css" />
 		<title>{% block title %}{% endblock %} - My Webpage</title>
 	{% endblock %}
-    <link rel="stylesheet"
-	      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-				integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-				crossorigin="anonymous">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 	<!-- Optional theme -->
 	<link rel="stylesheet"
 		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -24,17 +24,17 @@
 
 </head>
 <body>
-	<div class="text-center">
-		<a class="btn btn-primary btn-lg" href="/home">Home</a>
-        <a class="btn btn-primary btn-lg" href="/about">About</a>
-		<a class="btn btn-primary btn-lg" href="/quiz">Take Quiz</a>
+	<div class="text-center" style="margin-top:30px;">
+		<a id="main-btn" class="btn btn-md" href="/home">Home</a> 
+        <a id="main-btn" class="btn btn-md" href="/about">About</a>
+		<a id="main-btn" class="btn btn-md" href="/quiz">Take Quiz</a>
 	</div>
     <div class="container" id="content">
 		{% block content %}{% endblock %}
 	</div>
     <div id="footer" style="margin-top:100px">
         {% block footer %}
-        &copy; Copyright 2020 by <a href="/about">Afternoon Tea/m</a>.
+        &copy; Copyright 2020 by <a href="/about" style="color:#ffffff">Afternoon Tea/m</a>.
         {% endblock %}
     </div>
 
