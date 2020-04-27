@@ -32,7 +32,7 @@ def new_quiz():
 def quiz():
     global state
     if request.method == 'GET':
-        if state['count'] == 2:
+        if state['count'] == 10:
             return render_template('results.html', state=state)
         else:
             update_state()
@@ -51,7 +51,7 @@ def quiz():
 
         state['count'] += 1
 
-        if state['count'] == 2:
+        if state['count'] == 10:
             plot_results()
             return render_template('results.html', state=state)
         else:
