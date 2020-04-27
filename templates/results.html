@@ -3,7 +3,7 @@
 {% block content %}
 
     <div class="jumbotron text-center">
-      <h1>Find Your Match!</h1>  
+      <h1>Find Your Match!</h1>
     </div>
 
     <div class="text-center" style="margin-top: 50px; margin-bottom: 30px">
@@ -12,53 +12,53 @@
 
     <div class="text-center" style="margin-top: 50px; margin-bottom: 30px">
       <img src='{{state["url"]}}' alt="Chart" height="auto" width="auto">
-    
+
     <h2>Your Possible Matches:</h2>
     </div>
 
     <div class="text-center" style="margin-top: 50px; margin-bottom: 30px">
-      
+
       {% if state['score'] == [0,0] %}
         <h2>All!</h2>
         <img src="{{url_for('static', filename='all.png')}}"
-                style="max-width: 100%; height: auto; margin-bottom: 15px" 
+                style="max-width: 100%; height: auto; margin-bottom: 15px"
                 alt="All" />
         <h4>Your ideal type is an ideal type! They are not only physically attractive but also are intelligent, mature, and loyal! They are rare, but don't worry you will find them soon!</h4>
       {% else %}
         {% if state['score'][1] >= 0 %}
           <h2>Sexy!</h2>
           <img src="{{url_for('static', filename='sexy.png')}}"
-                style="max-width: 100%; height: auto; margin-bottom: 15px" 
+                style="max-width: 100%; height: auto; margin-bottom: 15px"
                 alt="Sexy" />
           <h4>You are attracted to the confident and sexy type! This person may be attractive and fit. A lot of people are also charmed by their mysteriousness, but don't worry they have their eyes on you.  </h4>
         {% endif %}
 
-        {% if state['score'][1] <= 0 %} 
+        {% if state['score'][1] <= 0 %}
           <h2>Nerdy!</h2>
           <img src="{{url_for('static', filename='nerdy.png')}}"
-                style="max-width: 100%; height: auto; margin-bottom: 15px" 
+                style="max-width: 100%; height: auto; margin-bottom: 15px"
                 alt="Nerdy" />
           <h4>Your ideal type is intelligent and diligent. They like to study and learn new things! They usually prefer staying indoors but will be willing to go out for you!</h4>
         {% endif %}
 
-        {% if state['score'][0] >= 0 %} 
+        {% if state['score'][0] >= 0 %}
           <h2>Mature!</h2>
           <img src="{{url_for('static', filename='Mature.gif')}}"
-                style="max-width: 100%; height: auto; margin-bottom: 15px" 
+                style="max-width: 100%; height: auto; margin-bottom: 15px"
                 alt="Mature" />
           <h4>Your ideal type is mature, they are always the adult in their friend group looking out for others. They are patient, calm, and caring and will always be there to help you... they may even spoil you a bit.</h4>
         {% endif %}
-        {% if state['score'][0] <= 0 %} 
+        {% if state['score'][0] <= 0 %}
           <h1>Cute!</h1>
           <img src="{{url_for('static', filename='cute.png')}}"
-                style="max-width: 100%; height: auto; margin-bottom: 15px" 
+                style="max-width: 100%; height: auto; margin-bottom: 15px"
                 alt="Cute" />
           <h4>You are attracted to the cute and innocent type! This person may be young looking, playful, and bright. They will always have a smile on and will be looking for someone who will take the lead for them. Just like the character, my melody.</h4>
         {% endif %}
       {% endif %}
-    
+
     <a href="/restart" id="main-btn" class="btn" style="font-size: medium; margin-top:10px;">Restart quiz</a>
   </div>
-    
+
 
 {% endblock %}

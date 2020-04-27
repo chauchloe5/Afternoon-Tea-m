@@ -68,19 +68,26 @@ def plot_results():
     matplotlib.use('Agg')
 
     plt.figure()
-    # Set x-axis range
-    plt.xlim((-10,10))
-    # Set y-axis range
-    plt.ylim((-10,10))
+    fig = plt.figure()
+    plt.xlabel('Nerdy')
+    plt.ylabel('Cute')
+    plt.tick_params(length=0,labelleft=False, labelbottom=False, labelright=False, labeltop=False, right=False, top=False, left=False, bottom=False)
+    ax = plt.axis([-10,10,-10,10])
+    ax2 = plt.twinx()
+    plt.ylabel('Mature')
+    plt.tick_params(labelleft=False, labelbottom=False, labelright=False, labeltop=False, right=False, top=False, left=False, bottom=False)
+    plt.axis([-10,10,-10,10])
+    plt.twiny()
+    plt.xlabel('Sexy')
+    plt.tick_params(labelleft=False, labelbottom=False, labelright=False, labeltop=False, right=False, top=False, left=False, bottom=False)
+    plt.axis([-10,10,-10,10])
+
     # Draw lines to split quadrants
-    plt.plot([0,0],[-10,10], linewidth=1, color='#333333' )
-    plt.plot([-10,10],[0,0], linewidth=1, color='#333333' )
-    plt.plot(state['score'][0],state['score'][1], 'ro')
-    plt.title('Personality Test')
-    plt.xlabel("Cute -- Mature",)
-    plt.ylabel("Nerdy -- Sexy")
-    plt.tick_params(labelleft=False, labelbottom=False, left=False, bottom=False)
-    
+    plt.plot([0,0],[-10,10], linewidth=4, color='#333333' )
+    plt.plot([-10,10],[0,0], linewidth=4, color='#333333' )
+
+    plt.plot(state['score'][0], state['score'][1], marker="o", color="#c60055")
+
     # current date and time
     now = datetime.now()
     timestamp = str(datetime.timestamp(now))
