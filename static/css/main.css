@@ -1,12 +1,12 @@
 @font-face{
-    font-family: balqis;
-    src: url('Balqis.ttf'),
-    url('Balqis.ttf');
+    font-family: angeline_vintage;
+    src: url('angeline_vintage.ttf'),
+    url('angeline_vintage.ttf');
     font-weight: bold;
 }
 
 body {
-    font-family: balqis !important;
+    font-family: angeline_vintage !important;
     background-color: #f06292 !important;
     color: #ffffff !important;
 }
@@ -17,11 +17,19 @@ body {
 }
 
 #main-btn {
-    background-color: #c60055 !important; 
+    background-color: #c60055 !important;
+    border-color: #c60055 !important; 
     color:#ffffff; 
-    border-width: 2px;
+    font-size:1.2rem;
+    margin-top:15px;
+    padding-bottom:10px;
+}
+
+h1 {
+    font-size:3rem !important;
 }
 
 #footer {
     color: #ffffff;
+    margin-top: 50px;
 }
